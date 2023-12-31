@@ -75,23 +75,10 @@ WSGI_APPLICATION = 'accountant.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
-#DATABASES = {
-#    'default': {
-#        'ENGINE': 'django.db.backends.sqlite3',
-#        'NAME': BASE_DIR / 'db.sqlite3',
-#    }
-#}
-
 DATABASES = {
     'default': {
-        'ENGINE': 'djongo',
-        'NAME': 'accountant',
-        'HOST': '127.0.0.1',
-        'PORT': 27017,
-#        'ENFORCE_SCHEMA': False,
-#        'CLIENT': {
-#            'host': 'mongodb+srv://<username>:<password>@<atlas cluster>/<myFirstDatabase>?retryWrites=true&w=majority'
-#        }  
+        'ENGINE': 'django.db.backends.sqlite3',
+        'NAME': BASE_DIR / 'db.sqlite3',
     }
 }
 
