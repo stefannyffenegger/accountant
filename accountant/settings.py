@@ -86,7 +86,9 @@ DATABASES = {
     'default': {
         'ENGINE': 'djongo',
         'NAME': 'accountant',
-#        'ENFORCE_SCHEMA': False,
+        'HOST': '127.0.0.1',
+        'PORT': 27017,
+        'ENFORCE_SCHEMA': False,
 #        'CLIENT': {
 #            'host': 'mongodb+srv://<username>:<password>@<atlas cluster>/<myFirstDatabase>?retryWrites=true&w=majority'
 #        }  
