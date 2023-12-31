@@ -1,22 +1,23 @@
-# accountant
+# Accountant
 
 ### Start Django
 #### Initial
 Run after DB changes  
-./manage.py makemigrations accountant
-./manage.py migrate
+`./manage.py makemigrations accountant`
+`./manage.py migrate`
 
-./manage.py createsuperuser --username=admin --email=admin@admin.com
+`./manage.py createsuperuser --username=admin --email=admin@admin.com`
 
 #### Run
-./manage.py runserver
+`./manage.py runserver`
 
 ### Setup & Troubleshooting
 #### MongoDB
 Instructions on how to use MongoDB instead of SQLite. 
 
-Modify settings.py
+Modify settings.py  
 
+```
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
@@ -29,7 +30,8 @@ DATABASES = {
 #        }  
     }
 }
+```
 
-pip install pymongo===3.12.1
+`pip install pymongo===3.12.1`
 - needed to mitigate issue with djongo (only compatible with 3.12.1)
 - https://github.com/doableware/djongo/issues/670
