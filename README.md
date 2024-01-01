@@ -9,7 +9,7 @@ Run after DB changes
 `./manage.py createsuperuser --username=admin --email=admin@admin.com`
 
 #### Run
-`./manage.py runserver`
+`./manage.py runserver 8000`
 
 ### Setup & Troubleshooting
 #### MongoDB
@@ -35,3 +35,7 @@ DATABASES = {
 `pip install pymongo===3.12.1`
 - needed to mitigate issue with djongo (only compatible with 3.12.1)
 - https://github.com/doableware/djongo/issues/670
+
+#### Python env
+`python -m venv env`
+`env\Scripts\activate`
