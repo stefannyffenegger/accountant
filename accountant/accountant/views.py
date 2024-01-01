@@ -23,6 +23,7 @@ from . import serializers
 #    return Response(serializer.data, status=status.HTTP_200_OK)
 
 class TransactionViewSet(viewsets.ModelViewSet):
+    #permission_classes = (permissions.IsAuthenticatedOrReadOnly)
     queryset = models.Transaction.objects.all()
     serializer_class = serializers.TransactionSerializer
 
