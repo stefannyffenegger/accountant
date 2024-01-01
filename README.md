@@ -3,7 +3,7 @@
 ### Start Django
 #### Initial
 Run after DB changes  
-`./manage.py makemigrations accountant`
+`./manage.py makemigrations accountant`  
 `./manage.py migrate`
 
 `./manage.py createsuperuser --username=admin --email=admin@admin.com`
@@ -37,5 +37,5 @@ DATABASES = {
 - https://github.com/doableware/djongo/issues/670
 
 #### Python env
-`python -m venv env`
+`python -m venv env`  
 `env\Scripts\activate`
