@@ -54,7 +54,11 @@ Install pymongo
 
 ## Python env
 ```
-python -m venv env
+# create new venv
+py -m venv env
+
+# update python in venv  
+py -m venv --upgrade env
 
 # Soften PowerShell restrictions
 Set-ExecutionPolicy Unrestricted
