@@ -6,9 +6,9 @@ class Transaction(models.Model):
     description = models.CharField(max_length=400)
     created = models.DateTimeField(auto_now_add=True)
     amount = models.FloatField()
-    #receipt
-    #guarantee
-    tag = models.CharField(max_length=100)
+    receipt = models.ImageField(upload_to="uploads/receipts/%Y/%m/%d/", blank=True)
+    guarantee = models.ImageField(upload_to="uploads/guarantees/%Y/%m/%d/", blank=True)
+    tag = models.CharField(max_length=100, blank=True)
     beneficiary = models.CharField(max_length=200)
     benefactor = models.CharField(max_length=200)
 
@@ -20,8 +20,8 @@ class Account(models.Model):
     name = models.CharField(max_length=100)
     description = models.CharField(max_length=400)
     created = models.DateTimeField(auto_now_add=True)
-    transactions = models.ForeignKey(Transaction, on_delete=models.CASCADE) # deletes all transactions of account
-    tag = models.CharField(max_length=100)
+    transactions = models.ForeignKey(Transaction, on_delete=models.CASCADE, blank=True, null=True) # deletes all transactions of account
+    tag = models.CharField(max_length=100, blank=True)
     owners = models.CharField(max_length=200)
     currency = models.CharField(max_length=100)
 
