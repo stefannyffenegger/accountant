@@ -1,17 +1,25 @@
 # Accountant
 
 ### Start Django
-#### Initial
-Run after DB changes  
-`./manage.py makemigrations accountant`  
-`./manage.py migrate`
 
-`./manage.py createsuperuser --username=admin --email=admin@admin.com`
+#### First run
+`py manage.py migrate`  
+`py manage.py runserver 8000`
 
-#### Run
-`./manage.py runserver 8000`
+##### Create admin account
+`py manage.py createsuperuser --username=admin --email=admin@admin.com`
+
 
 ### Setup & Troubleshooting
+
+#### Links
+http://127.0.0.1:8000/api/v1/  
+http://127.0.0.1:8000/admin/
+
+#### Generate migrations after model changes
+`py manage.py makemigrations accountant`  
+`py manage.py migrate`
+
 #### MongoDB
 Instructions on how to use MongoDB instead of SQLite. 
 
@@ -37,5 +45,17 @@ DATABASES = {
 - https://github.com/doableware/djongo/issues/670
 
 #### Python env
-`python -m venv env`  
-`env\Scripts\activate`
+```
+python -m venv env
+
+# Soften PowerShell restrictions
+Set-ExecutionPolicy Unrestricted
+
+# Activate environment in PowerShell
+.\env\Scripts\Activate.ps1
+
+# Install dependencies
+python -m pip install --upgrade pip
+pip install -r requirements.txt
+
+```
