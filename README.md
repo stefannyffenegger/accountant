@@ -1,31 +1,35 @@
 # Accountant
+Accountant Budgeting REST Backend based on Django
 
-### Start Django
+## Resources
+- https://www.django-rest-framework.org/
 
-#### First run
+## Start Django
+
+### First run
 `py manage.py migrate`  
 `py manage.py runserver 8000`
 
-##### Create admin account
+### Create admin account
 `py manage.py createsuperuser --username=admin --email=admin@admin.com`
 
 
-### Setup & Troubleshooting
+## Setup & Troubleshooting
 
-#### Links
+### Links
 http://127.0.0.1:8000/api/v1/  
 http://127.0.0.1:8000/admin/
 
-#### Generate migrations after model changes
+### Generate migrations after model changes
 `py manage.py makemigrations accountant`  
 `py manage.py migrate`
 
-#### MongoDB
+### Change SQLite to MongoDB
 Instructions on how to use MongoDB instead of SQLite. 
 
 Modify settings.py  
 
-```
+```python
 DATABASES = {
     'default': {
         'ENGINE': 'djongo',
@@ -39,12 +43,16 @@ DATABASES = {
     }
 }
 ```
-
+  
+Install pymongo  
 `pip install pymongo===3.12.1`
 - needed to mitigate issue with djongo (only compatible with 3.12.1)
 - https://github.com/doableware/djongo/issues/670
 
-#### Python env
+## CORS and CSRF Settings
+- https://github.com/adamchainz/django-cors-headers
+
+## Python env
 ```
 python -m venv env
 
