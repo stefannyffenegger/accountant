@@ -1,18 +1,26 @@
 from rest_framework import serializers
 from . import models
 
+
 class TransactionSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Transaction
         fields = '__all__' #['id', 'name', 'description', 'created', 'amount', 'tag', 'beneficiary', 'benefactor']
+
 
 class AccountSerializer(serializers.ModelSerializer):
     class Meta:
         model = models.Account
         fields = '__all__'
 
+
 class UserSerializer(serializers.ModelSerializer):
     #TODO: restrict fields
     class Meta:
         model = models.ApplicationUser
         fields = '__all__'
+
+
+class UserRegistrationSerializer(serializers.Serializer):
+    email = serializers.EmailField()
+    password = serializers.CharField(write_only=True)

@@ -3,13 +3,19 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from .managers import ApplicationUserManager
 
+
 class ApplicationUser(AbstractUser):
-    #Remove username and require unique email as username field
+    """
+    Custom ApplicationUser
+    Requires unique email as username field instead of username
+    """
     username = None
     email = models.EmailField(_("email address"), unique=True)
     
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
+
+    verification_token = models.CharField(max_length=100, null=True)
 
     objects = ApplicationUserManager()
 
@@ -19,7 +25,8 @@ class ApplicationUser(AbstractUser):
 
     def __str__(self):
         return self.email
-    
+
+
 class Account(models.Model):
     id = models.AutoField(primary_key=True)
     name = models.CharField(max_length=100)
@@ -33,7 +40,8 @@ class Account(models.Model):
 
     def __str__(self):
         return self.name
-    
+
+
 class Transaction(models.Model):
     id = models.AutoField(primary_key=True)
     account = models.ForeignKey(Account, on_delete=models.CASCADE)
@@ -51,11 +59,3 @@ class Transaction(models.Model):
 
     def __str__(self):
         return self.name
-    
-#class AppUser(models.Model):
-#    email = models.ForeignKey(User, on_delete=models.CASCADE)
-#    created = models.DateTimeField(auto_now_add=True)
-#    lastedit = models.DateTimeField(auto_now_add=True)
-#    
-#    def __str__(self):
-#        return self.email

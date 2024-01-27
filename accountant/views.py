@@ -2,7 +2,8 @@ from django.http import JsonResponse
 from django.shortcuts import render
 from rest_framework import viewsets, status
 from rest_framework.response import Response
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
+from rest_framework.permissions import AllowAny
 from . import models
 from . import serializers
 
@@ -32,5 +33,16 @@ class AccountViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.AccountSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
+    #TODO: to be removed, this is for testing purposes only!
     queryset = models.ApplicationUser.objects.all()
     serializer_class = serializers.UserSerializer
+
+@api_view(['POST'])
+def register(request):
+    #TODO
+    pass
+
+@api_view(['POST'])
+def verify_email(request):
+    #TODO
+    pass

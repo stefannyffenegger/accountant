@@ -21,7 +21,7 @@ Accountant Budgeting REST Backend based on Django
 
 ### Links
 
-http://127.0.0.1:8000/api/v1/  
+http://127.0.0.1:8000/api/  
 http://127.0.0.1:8000/admin/
 
 ### Generate migrations after model changes

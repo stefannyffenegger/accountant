@@ -73,6 +73,12 @@ TEMPLATES = [
     },
 ]
 
+EMAIL_USE_TLS = True  
+EMAIL_HOST = 'smtp.example.com'  
+EMAIL_HOST_USER = 'example@example.com'  
+EMAIL_HOST_PASSWORD = 'password'  
+EMAIL_PORT = 587 
+
 WSGI_APPLICATION = 'core.wsgi.application'
 
 
