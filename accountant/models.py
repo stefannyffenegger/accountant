@@ -1,7 +1,7 @@
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _
-from .managers import CustomUserManager
+from .managers import ApplicationUserManager
 
 class ApplicationUser(AbstractUser):
     #Remove username and require unique email as username field
@@ -11,7 +11,7 @@ class ApplicationUser(AbstractUser):
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = []
 
-    objects = CustomUserManager()
+    objects = ApplicationUserManager()
 
     class Meta:
         verbose_name = "application user"
