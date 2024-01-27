@@ -32,5 +32,5 @@ class AccountViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.AccountSerializer
 
 class UserViewSet(viewsets.ModelViewSet):
-    queryset = models.CustomUser.objects.all()
+    queryset = models.ApplicationUser.objects.all()
     serializer_class = serializers.UserSerializer

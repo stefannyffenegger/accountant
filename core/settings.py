@@ -42,7 +42,7 @@ INSTALLED_APPS = [
     'accountant',
 ]
 
-AUTH_USER_MODEL = "accountant.CustomUser"
+AUTH_USER_MODEL = "accountant.ApplicationUser"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -55,7 +55,7 @@ MIDDLEWARE = [
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 ]
 
-ROOT_URLCONF = 'accountant.urls'
+ROOT_URLCONF = 'core.urls'
 
 TEMPLATES = [
     {
@@ -73,7 +73,7 @@ TEMPLATES = [
     },
 ]
 
-WSGI_APPLICATION = 'accountant.wsgi.application'
+WSGI_APPLICATION = 'core.wsgi.application'
 
 
 # Database

@@ -3,8 +3,9 @@ from django.db import models
 from django.utils.translation import gettext_lazy as _
 from .managers import CustomUserManager
 
-class CustomUser(AbstractUser):
-    username = None # Remove "username"
+class ApplicationUser(AbstractUser):
+    #Remove username and require unique email as username field
+    username = None
     email = models.EmailField(_("email address"), unique=True)
     
     USERNAME_FIELD = 'email'
@@ -12,9 +13,9 @@ class CustomUser(AbstractUser):
 
     objects = CustomUserManager()
 
-    #class Meta:
-    #    verbose_name = "application user"
-    #    verbose_name_plural = "application users"
+    class Meta:
+        verbose_name = "application user"
+        verbose_name_plural = "application users"
 
     def __str__(self):
         return self.email
@@ -26,8 +27,8 @@ class Account(models.Model):
     date_created = models.DateTimeField(auto_now_add=True)
     date_modified = models.DateTimeField(auto_now=True)
     tag = models.CharField(max_length=100, blank=True) #TODO: ref array of Tag, tbd
-    owners = models.ManyToManyField(CustomUser) #TODO: ref array of User
-    viewers = models.ManyToManyField(CustomUser, blank=True, null=True) #TODO: ref array of User
+    owners = models.ManyToManyField(ApplicationUser, related_name="account_owners")
+    viewers = models.ManyToManyField(ApplicationUser, related_name="account_viewers", blank=True) #TODO: ref array of User
     currency = models.CharField(max_length=100) #TODO: use from currency list or create new model
 
     def __str__(self):
@@ -44,7 +45,7 @@ class Transaction(models.Model):
     receipt = models.ImageField(upload_to="uploads/receipts/%Y/%m/%d/", blank=True)
     guarantee = models.ImageField(upload_to="uploads/guarantees/%Y/%m/%d/", blank=True)
     tag = models.CharField(max_length=100, blank=True)
-    created_by = models.ForeignKey(CustomUser, on_delete=models.SET_NULL)
+    created_by = models.ForeignKey(ApplicationUser, on_delete=models.SET_NULL, null=True)
     beneficiary = models.CharField(max_length=200)
     benefactor = models.CharField(max_length=200)
 

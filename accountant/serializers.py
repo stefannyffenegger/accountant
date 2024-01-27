@@ -14,5 +14,5 @@ class AccountSerializer(serializers.ModelSerializer):
 class UserSerializer(serializers.ModelSerializer):
     #TODO: restrict fields
     class Meta:
-        model = models.CustomUser
+        model = models.ApplicationUser
         fields = '__all__'

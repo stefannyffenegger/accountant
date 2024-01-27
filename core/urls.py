@@ -18,7 +18,7 @@ from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
 
-from accountant.accountant import views
+from accountant import views
 
 router = routers.DefaultRouter()
 router.register(r'transactions', views.TransactionViewSet)

@@ -15,7 +15,7 @@ Accountant Budgeting REST Backend based on Django
 
 ### Create admin account
 
-`py manage.py createsuperuser --username=admin --email=admin@admin.com`
+`py manage.py createsuperuser --email=admin@admin.com`
 
 ## Setup & Troubleshooting
 
