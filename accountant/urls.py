@@ -23,6 +23,7 @@ from accountant.accountant import views
 router = routers.DefaultRouter()
 router.register(r'transactions', views.TransactionViewSet)
 router.register(r'accounts', views.AccountViewSet)
+router.register(r'users', views.UserViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
