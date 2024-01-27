@@ -37,10 +37,12 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'accountant',
     'rest_framework',
     'corsheaders',
+    'accountant',
 ]
+
+AUTH_USER_MODEL = "accountant.CustomUser"
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
