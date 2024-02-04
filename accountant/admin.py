@@ -30,3 +30,5 @@ class ApplicationUserAdmin(UserAdmin):
 admin.site.register(ApplicationUser, ApplicationUserAdmin)
 admin.site.register(models.Transaction)
 admin.site.register(models.Account)
+admin.site.register(models.Vault)
+admin.site.register(models.Tag)
