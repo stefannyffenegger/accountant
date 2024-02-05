@@ -35,6 +35,7 @@ INSTALLED_APPS = [
     'django.contrib.auth',
     'django.contrib.contenttypes',
     'django.contrib.sessions',
+    'rest_framework.authtoken',
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'rest_framework',
@@ -144,3 +145,10 @@ CORS_ALLOWED_ORIGINS = [
 # CSRF_TRUSTED_ORIGINS = [
 #     "https://read-and-write.example.com",
 # ]
+
+
+REST_FRAMEWORK = {
+    'DEFAULT_AUTHENTICATION_CLASSES': [
+        'rest_framework.authentication.TokenAuthentication',  # Add this line
+    ],
+}

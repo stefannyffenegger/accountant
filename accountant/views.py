@@ -1,9 +1,12 @@
 from django.http import JsonResponse
 from django.shortcuts import render
-from rest_framework import viewsets, status
+from rest_framework import viewsets, status, generics
 from rest_framework.response import Response
 from rest_framework.decorators import api_view, permission_classes
+from rest_framework.authtoken.models import Token
+from rest_framework.views import APIView
 from rest_framework.permissions import AllowAny
+from django.contrib.auth import authenticate
 from . import models
 from . import serializers
 
@@ -36,6 +39,20 @@ class UserViewSet(viewsets.ModelViewSet):
     #TODO: to be removed, this is for testing purposes only!
     queryset = models.ApplicationUser.objects.all()
     serializer_class = serializers.UserSerializer
+
+class UserRegistrationView(generics.CreateAPIView):
+    serializer_class = serializers.UserSerializer
+    permission_classes = [AllowAny]
+
+class UserLoginView(APIView):
+    def post(self, request):
+        user = authenticate(username=request.data['username'], password=request.data['password'])
+        if user:
+            token, created = Token.objects.get_or_create(user=user)
+            return Response({'token': token.key})
+        else:
+            return Response({'error': 'Invalid credentials'}, status=401)
+
 
 @api_view(['POST'])
 def register(request):
