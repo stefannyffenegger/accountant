@@ -5,6 +5,8 @@ Accountant Budgeting REST Backend based on Django
 ## Resources
 
 - https://www.django-rest-framework.org/
+- https://dj-rest-auth.readthedocs.io/en/latest/api_endpoints.html
+- https://django-rest-framework-simplejwt.readthedocs.io/en/latest/settings.html
 
 ## Start Django
 

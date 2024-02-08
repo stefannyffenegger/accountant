@@ -19,3 +19,12 @@ REST_FRAMEWORK = {
 ]
 }
 https://www.django-rest-framework.org/api-guide/authentication
+
+# Extra authentication libraries
+
+auth library:  
+https://dj-rest-auth.readthedocs.io/  
+https://dj-rest-auth.readthedocs.io/en/latest/api_endpoints.html  
+"real" jwt ready to go:  
+https://django-rest-framework-simplejwt.readthedocs.io/  
+https://django-rest-framework-simplejwt.readthedocs.io/en/latest/settings.html

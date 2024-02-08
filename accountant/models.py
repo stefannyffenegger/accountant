@@ -2,6 +2,8 @@ from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _
 from .managers import ApplicationUserManager
+from django.conf import settings
+from rest_framework.authtoken.models import Token as AuthToken
 
 
 class ApplicationUser(AbstractUser):
@@ -25,6 +27,16 @@ class ApplicationUser(AbstractUser):
 
     def __str__(self):
         return self.email
+
+
+class Token(AuthToken):
+    token_key = models.CharField(max_length=40, db_index=True, unique=True)
+    appuser = models.ForeignKey(
+        settings.AUTH_USER_MODEL,
+        related_name="authentication_token",
+        on_delete=models.CASCADE,
+        #verbose_name="User",
+    )
 
 
 class Vault(models.Model):
