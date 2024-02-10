@@ -1,3 +1,4 @@
+from logging import warning
 from django.contrib.auth.models import AbstractUser
 from django.db import models
 from django.utils.translation import gettext_lazy as _
@@ -30,6 +31,9 @@ class ApplicationUser(AbstractUser):
 
 
 class Token(AuthToken):
+    '''
+    DEPRICATED, replaced by JWT library
+    '''
     token_key = models.CharField(max_length=40, db_index=True, unique=True)
     appuser = models.ForeignKey(
         settings.AUTH_USER_MODEL,

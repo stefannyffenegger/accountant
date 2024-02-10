@@ -1,3 +1,9 @@
+"""
+Authentication endpoints:
+https://dj-rest-auth.readthedocs.io/en/latest/api_endpoints.html
+JWT endpoints:
+https://django-rest-framework-simplejwt.readthedocs.io/en/latest/getting_started.html
+"""
 from django.http import JsonResponse
 from django.shortcuts import render
 from rest_framework import viewsets, status, generics
@@ -22,11 +28,17 @@ class AccountViewSet(viewsets.ModelViewSet):
 
 
 class UserRegistrationView(generics.CreateAPIView):
+    '''
+    DEPRICATED, replaced by dj-rest-auth library
+    '''
     permission_classes = [AllowAny]
     serializer_class = serializers.UserSerializer
 
 
 class UserLoginView(APIView):
+    '''
+    DEPRICATED, replaced by JWT library
+    '''
     permission_classes = [AllowAny]
     def post(self, request):
         user = authenticate(username=request.data['username'], password=request.data['password'])

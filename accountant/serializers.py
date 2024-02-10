@@ -1,4 +1,5 @@
 from rest_framework import serializers
+#from dj_rest_auth.registration.serializers import RegisterSerializer
 from . import models
 
 
@@ -14,13 +15,32 @@ class AccountSerializer(serializers.ModelSerializer):
         fields = '__all__'
 
 
+class VaultSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Vault
+        fields = '__all__'
+
+
+class TagSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = models.Tag
+        fields = '__all__'
+
+
 class UserSerializer(serializers.ModelSerializer):
-    #TODO: restrict fields
+    #TODO: restrict fields if possible
     class Meta:
         model = models.ApplicationUser
         fields = '__all__'
 
 
-class UserRegistrationSerializer(serializers.Serializer):
-    email = serializers.EmailField()
-    password = serializers.CharField(write_only=True)
+#class UserRegistrationSerializer(RegisterSerializer):
+#    '''
+#    DEPRICATED, replaced by dj-rest-auth library
+#    '''
+#    email = serializers.EmailField()
+#    #password = serializers.CharField(write_only=True)
+#
+#    class Meta:
+#        model = models.ApplicationUser
+#        fields = '__all__'

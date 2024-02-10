@@ -37,10 +37,10 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'django.contrib.sites',
     'rest_framework',
-    'rest_framework.authtoken',
+    'djoser',
     'corsheaders',
-    'dj_rest_auth',
     'accountant',
 ]
 
@@ -154,12 +154,5 @@ REST_FRAMEWORK = {
         #'rest_framework.authentication.BasicAuthentication',
         #'rest_framework.authentication.SessionAuthentication',
         'rest_framework_simplejwt.authentication.JWTAuthentication',
-        'dj_rest_auth.jwt_auth.JWTCookieAuthentication',
     ],
-}
-
-REST_AUTH = {
-    'USE_JWT': True,
-    'JWT_AUTH_COOKIE': 'access-token',
-    'JWT_AUTH_REFRESH_COOKIE': 'refresh-token',
 }

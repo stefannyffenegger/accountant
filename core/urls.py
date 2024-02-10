@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
+#from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from accountant import views
 
@@ -28,8 +28,10 @@ router.register(r'accounts', views.AccountViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    #path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
+    #path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
+    path('auth/', include('djoser.urls')),
     #path("api/auth/login/", views.UserLoginView.as_view(), name="user-login"),
-    path('api/auth/', include('dj_rest_auth.urls'))
+    #path('api/auth/', include('dj_rest_auth.urls')),
+    #path('api/auth/account-confirm-email/', VerifyEmailView.as_view(), name='account_email_verification_sent'),
 ]
