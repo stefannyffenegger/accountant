@@ -17,7 +17,6 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import include, path
 from rest_framework import routers
-#from rest_framework_simplejwt.views import TokenObtainPairView, TokenRefreshView
 
 from accountant import views
 
@@ -30,9 +29,7 @@ router.register(r'tags', views.TagViewSet)
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
-    #path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
-    #path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
     path('auth/', include('djoser.urls.base')),
     path('auth/', include('djoser.urls.jwt')),
-    #path('webauthn/', include('djoser.webauthn.urls')), #for future yubikey, etc. login
+    #path('webauthn/', include('djoser.webauthn.urls')), #for future with U2F Tokens
 ]

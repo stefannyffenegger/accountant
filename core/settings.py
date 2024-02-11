@@ -75,10 +75,10 @@ TEMPLATES = [
 ]
 
 EMAIL_USE_TLS = True  
-EMAIL_HOST = 'smtp.example.com'  
-EMAIL_HOST_USER = 'example@example.com'  
-EMAIL_HOST_PASSWORD = 'password'  
-EMAIL_PORT = 587 
+EMAIL_HOST = 'smaragd.metanet.ch' 
+EMAIL_HOST_USER = 'accountant@nyst.ch' 
+EMAIL_HOST_PASSWORD = 'WbNLnndOSKO2NULZiZnWpMrcvs'
+EMAIL_PORT = 587
 
 WSGI_APPLICATION = 'core.wsgi.application'
 
@@ -163,10 +163,12 @@ AUTHENTICATION_BACKENDS = [
 ]
 
 DJOSER = {
-    #"SEND_ACTIVATION_EMAIL": False,
-    #"PASSWORD_RESET_CONFIRM_URL": "#/password/reset/confirm/{uid}/{token}",
-    #"USERNAME_RESET_CONFIRM_URL": "#/username/reset/confirm/{uid}/{token}",
-    #"ACTIVATION_URL": "#/activate/{uid}/{token}",
+    'TOKEN_MODEL': None, #Set to None for stateless tokens e.g. JWT
+    'SEND_ACTIVATION_EMAIL': True,
+    'SEND_CONFIRMATION_EMAIL': True,
+    'PASSWORD_RESET_CONFIRM_URL': '#/password/reset/confirm/{uid}/{token}',
+    #'USERNAME_RESET_CONFIRM_URL': '#/username/reset/confirm/{uid}/{token}',
+    'ACTIVATION_URL': '#/activate/{uid}/{token}',
 }
 
 # https://django-rest-framework-simplejwt.readthedocs.io/en/latest/settings.html#settings
