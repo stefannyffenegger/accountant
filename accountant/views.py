@@ -27,6 +27,16 @@ class AccountViewSet(viewsets.ModelViewSet):
     serializer_class = serializers.AccountSerializer
 
 
+class VaultViewSet(viewsets.ModelViewSet):
+    queryset = models.Vault.objects.all()
+    serializer_class = serializers.VaultSerializer
+
+
+class TagViewSet(viewsets.ModelViewSet):
+    queryset = models.Tag.objects.all()
+    serializer_class = serializers.TagSerializer
+
+
 class UserRegistrationView(generics.CreateAPIView):
     '''
     DEPRICATED, replaced by dj-rest-auth library

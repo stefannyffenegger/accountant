@@ -24,14 +24,15 @@ from accountant import views
 router = routers.DefaultRouter()
 router.register(r'transactions', views.TransactionViewSet)
 router.register(r'accounts', views.AccountViewSet)
+router.register(r'vaults', views.VaultViewSet)
+router.register(r'tags', views.TagViewSet)
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/', include(router.urls)),
     #path('api/token/', TokenObtainPairView.as_view(), name='token_obtain_pair'),
     #path('api/token/refresh/', TokenRefreshView.as_view(), name='token_refresh'),
-    path('auth/', include('djoser.urls')),
-    #path("api/auth/login/", views.UserLoginView.as_view(), name="user-login"),
-    #path('api/auth/', include('dj_rest_auth.urls')),
-    #path('api/auth/account-confirm-email/', VerifyEmailView.as_view(), name='account_email_verification_sent'),
+    path('auth/', include('djoser.urls.base')),
+    path('auth/', include('djoser.urls.jwt')),
+    #path('webauthn/', include('djoser.webauthn.urls')), #for future yubikey, etc. login
 ]
