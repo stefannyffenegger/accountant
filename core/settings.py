@@ -140,6 +140,7 @@ CORS_ALLOWED_ORIGINS = [
     #"https://sub.example.com",
     "http://localhost:8080",
     "http://127.0.0.1:9000",
+    "http://localhost:3000",
 ]
 
 # CSRF_TRUSTED_ORIGINS = [
@@ -149,7 +150,7 @@ CORS_ALLOWED_ORIGINS = [
 
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
-        #'rest_framework.permissions.IsAuthenticated', #defaults all endpoints to require auth
+        'rest_framework.permissions.IsAuthenticated', #defaults all endpoints to require auth
     ],
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework_simplejwt.authentication.JWTAuthentication',
